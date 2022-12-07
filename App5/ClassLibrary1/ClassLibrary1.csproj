@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13824FEB-3F3D-4EF5-BFE1-6E0F3C2D4C5F}</ProjectGuid>
+    <ProjectTypeGuids>{10368E6C-D01B-4462-8E8B-01FC667A7035};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{77efb91c-a7e9-4b0e-a7c5-31eeec3c6d46}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClassLibrary1</RootNamespace>
+    <AssemblyName>ClassLibrary1</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>True</Deterministic>
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
+    <AndroidClassParser>class-parse</AndroidClassParser>
+    <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\AboutJars.txt" />
+    <None Include="Additions\AboutAdditions.txt" />
+    <AndroidNativeLibrary Include="Jars\jniLibs\arm64-v8a\libAraBione.so">
+    </AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\arm64-v8a\libAraBMApiDev.so">
+	<Abi>arm64</Abi>
+	</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\arm64-v8a\libAraBMApiFp.so">
+	<Abi>arm64</Abi>
+	</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\arm64-v8a\libAraBMApiFpAlgorithm.so">
+	<Abi>arm64</Abi>
+	</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\arm64-v8a\libAraBMApiQrc.so">
+	<Abi>arm64</Abi>
+	</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\arm64-v8a\libftrScanAPI.so">
+	<Abi>arm64</Abi>
+	</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\arm64-v8a\libncnn.so">
+	<Abi>arm64</Abi>
+	</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\arm64-v8a\libopencv_java3.so">
+	<Abi>arm64</Abi>
+	</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\arm64-v8a\libusb-1.0.so">
+	<Abi>arm64</Abi>
+	</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\arm64-v8a\libWSQ_library_android.so">
+	<Abi>arm64</Abi>
+	</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\arm64-v8a\libxml2.so">
+	<Abi>arm64</Abi>
+	</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\armeabi-v7a\libAraBione.so">
+	    <Abi>armeabi</Abi>
+	</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\armeabi-v7a\libAraBMApiDev.so">
+	    <Abi>armeabi</Abi>
+		</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\armeabi-v7a\libAraBMApiFp.so">    <Abi>armeabi</Abi></AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\armeabi-v7a\libAraBMApiFpAlgorithm.so">    <Abi>armeabi</Abi></AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\armeabi-v7a\libAraBMApiQrc.so">    <Abi>armeabi</Abi></AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\armeabi-v7a\libftrScanAPI.so">    <Abi>armeabi</Abi></AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\armeabi-v7a\libncnn.so" >    <Abi>armeabi</Abi></AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\armeabi-v7a\libopencv_java3.so" >    <Abi>armeabi</Abi></AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\armeabi-v7a\libusb-1.0.so">
+	    <Abi>armeabi</Abi>
+		</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\armeabi-v7a\libWSQ_library_android.so">
+	    <Abi>armeabi</Abi>
+		</AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="Jars\jniLibs\armeabi-v7a\libxml2.so">
+	    <Abi>armeabi</Abi>
+		
+		</AndroidNativeLibrary>
+  </ItemGroup>
+  <ItemGroup>
+    <TransformFile Include="Transforms\Metadata.xml" />
+    <TransformFile Include="Transforms\EnumFields.xml" />
+    <TransformFile Include="Transforms\EnumMethods.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\AraBMApiDev.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\AraBMApiFp.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedJar Include="Jars\AraBMApiQrc.jar" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
