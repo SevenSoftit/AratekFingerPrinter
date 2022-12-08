@@ -76,33 +76,9 @@ namespace App1.Droid
             {
                 //return e.Message;
             }
-            mFingerprintScanner = FingerprintScanner.GetInstance(this);
-            mFingerprintScanner.PowerOn(); // ignore power on errors
-            //mFingerprintScanner.
-            var error = mFingerprintScanner.Open(); // => AQUI DA EL ERROR.
-
-            if (error == FingerprintScanner.ResultOk)
-            {
-
-
-
-                //var res = mFingerprintScanner.FirmwareVersion;
-                App.Current.MainPage.DisplayAlert(error.ToString(), "good", "OK");
-            }
-            else
-            {
-                mFingerprintScanner.PowerOff(); // ignore power off errors
-            }                     
-            error = mFingerprintScanner.Close();
-            if (error == FingerprintScanner.ResultOk)
-            {
-
-            }
-            else
-            {
-    
-            }
-            mFingerprintScanner.PowerOff(); // ignore power off
+            var btn = view.FindViewById<Button>(Resource.Id.buttonId);
+            btn.Tag = position;
+            btn.SetOnClickListener(this);
             LoadApplication(new App());
             App.Current.MainPage.DisplayAlert(error.ToString(),"bad" , "OK");
             ImageView translatedPhoneWord = (ImageView)FindViewById(877998989);
