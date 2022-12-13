@@ -88,6 +88,12 @@
     <AndroidNativeLibrary Include="lib\armeabi-v7a\libusb-1.0.so" />
     <AndroidNativeLibrary Include="lib\armeabi-v7a\libWSQ_library_android.so" />
     <AndroidNativeLibrary Include="lib\armeabi-v7a\libxml2.so" />
+    <AndroidNativeLibrary Include="lib\armeabi-v7a\libserial_port.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AndroidNativeLibrary>
+    <AndroidNativeLibrary Include="lib\x86\libserial_port.so" />
+    <AndroidNativeLibrary Include="lib\armeabi-v7a\libandroid_serial_port.so" />
+    <AndroidNativeLibrary Include="lib\arm64-v8a\libserial_port.so" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
@@ -123,7 +129,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="utils\" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.2.0.5" />
     <PackageReference Include="Xamarin.AndroidX.Browser">
@@ -148,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\logo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <TransformFile Include="Resources\xml\prefs.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -17,7 +17,7 @@ using System.IO;
 
 namespace App1.Droid
 {
-    [Activity(Label = "App1", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    [Activity(Label = "App1", Icon = "@mipmap/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
 
@@ -37,8 +37,8 @@ namespace App1.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
           //  mFingerprintImage = FindViewById(Resource.Id.fingerimage);
-            try
-            {
+            //try
+            //{
                 JavaSystem.LoadLibrary("xml2");
                 JavaSystem.LoadLibrary("usb-1.0");
                 JavaSystem.LoadLibrary("WSQ_library_android");
@@ -71,16 +71,14 @@ namespace App1.Droid
                 //JavaSystem.LoadLibrary("fluidsynth");
                 //JavaSystem.LoadLibrary("sdl_mixer");
                 //JavaSystem.LoadLibrary("initmixer");
-            }
-            catch (UnsatisfiedLinkError e)
-            {
+            //}
+            //catch (UnsatisfiedLinkError e)
+            //{
                 //return e.Message;
-            }
-            var btn = view.FindViewById<Button>(Resource.Id.buttonId);
-            btn.Tag = position;
-            btn.SetOnClickListener(this);
+       
+            //btn.SetOnClickListener(this);
             LoadApplication(new App());
-            App.Current.MainPage.DisplayAlert(error.ToString(),"bad" , "OK");
+            //App.Current.MainPage.DisplayAlert(error.ToString(),"bad" , "OK");
             ImageView translatedPhoneWord = (ImageView)FindViewById(877998989);
             TextView textlop = (TextView)FindViewById(Resource.Id.text);
             //textlop.Text = "Texto Cambiado";

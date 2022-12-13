@@ -16,6 +16,10 @@ using System.Drawing;
 using Android.Graphics;
 using Android.Widget;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
+using Android.Preferences;
+using System.Text;
+using Java.Security;
+using Android1serialport1api;
 
 namespace XAMARINTEST
 {
@@ -23,14 +27,26 @@ namespace XAMARINTEST
     public class MainActivity : AppCompatActivity
     {
         private FingerprintScanner mFingerprintScanner;
+        public SerialPortFinder mSerialPortFinder = new SerialPortFinder();
+        private SerialPort mSerialPort = null;
+        public System.Boolean isset = false;
         private string FP_DB_PATH = "/sdcard/fp.db";
         ImageView ImageView1;
+       
+        protected System.IO.Stream mOutputStream;
+        private System.IO.Stream mInputStream;
+        protected Application mApplication;
+        //private ReadThread mReadThread;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
             JavaSystem.LoadLibrary("xml2");
+            //JavaSystem.LoadLibrary("serial_port");
+            //JavaSystem.LoadLibrary("android_serial_port");
+            
             AssetManager assets = this.Assets;
             StreamReader sr = new StreamReader(assets.Open("terminal.xml"));
             ImageView1 = (ImageView)FindViewById(Resource.Id.imageView1);
@@ -48,12 +64,23 @@ namespace XAMARINTEST
             var btn = FindViewById<Button>(Resource.Id.button1);
             //btn.Tag = position;
             btn.Click += btnOnClick;
+
+            var btn2 = FindViewById<Button>(Resource.Id.button2);
+            //btn.Tag = position;
+            btn2.Click += btnOnClick2;
+
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
         }
+
+        private void AddPreferencesFromResource(Resource.Xml xml)
+        {
+            throw new NotImplementedException();
+        }
+
         private void btnOnClick(object sender, EventArgs eventArgs)
         {
             mFingerprintScanner.PowerOn(); // ignore power on errors
@@ -121,6 +148,57 @@ namespace XAMARINTEST
             
             
         }
+        private void btnOnClick2(object sender, EventArgs eventArgs)
+        {
+            JavaSystem.LoadLibrary("serial_port");
+            mSerialPort = null;
+
+            try
+            {
+                string path = "/dev/ttysWK1";
+                int baudrate = 115200;
+
+                /* Check parameters */
+                if ((path.Length == 0) || (baudrate == -1))
+                {
+                    //throw new InvalidParameterException();
+                    /*use default value.    Nirvana 0710*/
+                    path = "/dev/ttysWK1";
+                    baudrate = 115200;
+                }
+
+                /* Open the serial port */
+                var odevice =  new Java.IO.File(path);
+                mSerialPort = new SerialPort(odevice, baudrate, 0);
+                mOutputStream = mSerialPort.OutputStream;
+                mInputStream = mSerialPort.InputStream;
+                string oPruebaImpresion = "Prueba impresion";
+                byte[] bytes = Encoding.ASCII.GetBytes(oPruebaImpresion);
+                mOutputStream.Write(bytes);
+                
+
+            }
+            catch (SecurityException e)
+            {
+                
+            }
+            catch (IOException e)
+            {
+                
+            }
+            catch (InvalidParameterException e)
+            {
+                
+            }
+
+
+        }
+
+        private Application getApplication()
+        {
+            throw new NotImplementedException();
+        }
+        
         private void updateFingerprintImage(FingerprintImage fi)
         {
             byte[] fpBmp = null;
